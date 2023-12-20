@@ -3,9 +3,16 @@ class Student:
     self.name = name
     self.house = house 
 
+  @classmethod
+  def get(cls):
+    name = input('Name: ')
+    house = input('House: ')
+    return cls(name,house)
+
 @property
 def house(self):
   return self._house  
+
 @house.setter
 def house(self,house):
   if house not in ['Griffindor','Hufflepuf','Ravenclaw','Slytherin'] :
@@ -42,18 +49,9 @@ def house(self,house):
 
 
 def main():
-  student = get_student()
+  student = Student.get()
   print(student.house)
 
-
-def get_student():
-  #student = Student()
-  #student.name = input('Name: ')
-  #student.house = input('House: ')
-  name = input('Name: ')
-  house = input('House: ')
-  student = Student(name,house)
-  return student
 
 if __name__ == '__main__' :
   main()
